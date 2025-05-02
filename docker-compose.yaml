@@ -1,0 +1,37 @@
+services:
+  ord-indexer:
+    image: verydogelabs/wonky-ord-dogecoin
+    env_file:
+      - .env
+    environment:
+      - RUST_LOG=${RUST_LOG:-info}
+      #- FIRST_INSCRIPTION_HEIGHT=0
+      #- FIRST_DUNE_HEIGHT=0
+    tty: false
+    restart: "always"
+    # for the indexer to be able to connect to the local dogecoin node we use the host network
+    # network_mode: "host"
+    ports:
+      - 80:80
+    entrypoint: [
+      "ord",
+      "--chain=testnet",
+      "--rpc-url=${RPC_URL}",
+      "--data-dir=/root/.data",
+      #"--nr-parallel-requests=250",
+      #"--first-inscription-height=${FIRST_INSCRIPTION_HEIGHT}",
+      #"--first-dune-height=${FIRST_DUNE_HEIGHT}",
+      "--index-dunes",
+      "--index-transactions",
+      "--index-bit20",
+      "server"
+    ]
+    volumes:
+      - ${DOG_MOUNT_DIR_INDEXER:-/mnt/ord-node}/indexer-data-main:/root/.data:delegated
+      # If your dogecoin node is running in a container, you can mount the dogecoin data directory to the indexer container
+      # - dog-data:/root/.dogecoin
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "50m"
+    privileged: true

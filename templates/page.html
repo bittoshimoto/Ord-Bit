@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:title" content="{{ self.content.title() }}">
+    <meta property="og:image" content="{{ self.og_image() }}">
+    <meta property="twitter:card" content="summary">
+    <title>{{ self.content.title() }}</title>
+
+    <!-- Bitcoin Ubuntu Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="/static/modern-normalize.css">
+    <link rel="stylesheet" href="/static/index.css">
+
+    <!-- JavaScript -->
+    <script src="/static/index.js" defer></script>
+  </head>
+  <body>
+    <header class="page-header">
+      <div class="branding">
+        <h1>B1T Ord1nals Mainnet</h1>
+      </div>
+      <div class="search-section">
+        <form action="/search" method="get" class="search-form">
+          <input type="text" name="query" autocomplete="off" spellcheck="false">
+          <input type="submit" value="Search">
+        </form>
+      </div>
+    </header>
+
+    <main>
+      <div class="hash-wrapper">
+        $$ Trusted(&self.content)
+      </div>
+    </main>
+  </body>
+</html>
+

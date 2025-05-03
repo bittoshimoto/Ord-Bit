@@ -478,3 +478,30 @@ nav {
   word-break: break-word;
   max-width: 90%;
 }
+
+.rolling-logo {
+  width: 100vw;
+  overflow: hidden;
+  margin: 2rem 0;
+  position: relative;
+  height: 100px; /* match image height or desired space */
+}
+
+.rolling-logo img {
+  position: absolute;
+  top: 0;
+  left: -100px; /* start off-screen */
+  width: 100px;
+  height: auto;
+  animation: rollRight 5s linear infinite;
+}
+
+@keyframes rollRight {
+  0% {
+    transform: translateX(0) rotate(0deg);
+  }
+  100% {
+    transform: translateX(120vw) rotate(1440deg);
+  }
+}
+

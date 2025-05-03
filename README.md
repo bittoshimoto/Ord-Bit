@@ -13,7 +13,7 @@ Download and install the latest version from [B1T Core](https://github.com/bitto
 Run the following command to start **B1T Core** with the required flags:
 
 ```shell
-bitd -txindex -rpcuser=your_username -rpcpassword=your_password -rpcport=42069 -rpcallowip=0.0.0.0/0 -rpcbind=127.0.0.1
+./bitd -txindex -rpcuser=your_username -rpcpassword=your_password -rpcport=33318 -rpcallowip=0.0.0.0/0 -rpcbind=127.0.0.1
 ```
 
 - Ensure your **B1T node is fully synced** before starting the indexer.
